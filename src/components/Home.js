@@ -14,7 +14,7 @@ export default function Home({ students, toggleMode, mode, setMode }) {
       <p>
         Yellow, Reagan! We, the students of your very first own web development
         batch, have decided to create this little full-stack application as a
-        gift for you to make sure that you never ever ever forget us. And also
+        gift for you, to make sure that you never ever ever forget us. And also
         to show off the amazing skills you have taught us in the past 15 weeks.
         Thank you for everything you have done for us, for your neverending (ok,
         almost neverending) patience and your amazing teaching skills as well as
@@ -41,14 +41,18 @@ export default function Home({ students, toggleMode, mode, setMode }) {
           })}
       </div>
       <div className="github">
-        <FaGithub />
-        <a href="https://github.com/oh-ve/a-present-frontend" target="blank">
-          Frontend
-        </a>
-        <FaGithub />
-        <a href="https://github.com/oh-ve/a-present-backend" target="blank">
-          Backend
-        </a>
+        <div id="frontend">
+          <FaGithub />
+          <a href="https://github.com/oh-ve/a-present-frontend" target="blank">
+            Frontend
+          </a>
+        </div>
+        <div id="backend">
+          <FaGithub />
+          <a href="https://github.com/oh-ve/a-present-backend" target="blank">
+            Backend
+          </a>
+        </div>
       </div>
     </div>
   );
