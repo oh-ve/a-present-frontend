@@ -17,10 +17,17 @@ export default function Students({ students }) {
   const previousStudent = students[previousIndex];
   const nextStudent = students[nextIndex];
 
+  let image;
+  try {
+    image = require(`./Images/${student.name}.jpg`);
+  } catch (error) {
+    image = null;
+  }
+
   return (
     <div className="Students">
       <h1>{name}</h1>
-      <img src={require(`./Images/${student.name}.jpg`)} width="300px" />
+      {image ? <img src={image} width="300px" /> : <></>}
 
       {student.formerJob && (
         <>

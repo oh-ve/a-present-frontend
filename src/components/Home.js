@@ -8,8 +8,9 @@ export default function Home({ students, toggleMode, mode, setMode }) {
 
   return (
     <div className="Home">
-      <h1>WD#033</h1>
       <h2>A present for Reagan</h2>
+      <h1>WD#033</h1>
+
       <img src={Reagan} />
       <p>
         Yellow, Reagan! We, the students of your very first own web development
