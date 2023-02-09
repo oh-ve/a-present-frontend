@@ -3,7 +3,7 @@ import { useState } from "react";
 import Reagan from "./Images/Reagan.jpg";
 import { FaGithub } from "react-icons/fa";
 
-export default function Home({ students, toggleMode, mode, setMode }) {
+export default function Home({ students, toggleMode, mode, setMode, css }) {
   const navigate = useNavigate();
 
   return (

@@ -5,18 +5,14 @@ import Home from "./components/Home";
 
 export default function App() {
   const [students, setStudents] = useState([]);
-
   const [mode, setMode] = useState("light");
+
+  const [css, setCss] = useState(require("./Light.css"));
 
   const toggleMode = () => {
     setMode(mode === "light" ? "dark" : "light");
+    setCss(mode === "light" ? require("./Dark.css") : require("./Light.css"));
   };
-
-  if (mode === "light") {
-    const css = require("./Light.css");
-  } else {
-    const css = require("./Dark.css");
-  }
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -40,12 +36,7 @@ export default function App() {
         <Route
           path="/"
           element={
-            <Home
-              toggleMode={toggleMode}
-              setMode={setMode}
-              mode={mode}
-              students={students}
-            />
+            <Home toggleMode={toggleMode} students={students} css={css} />
           }
         />
         <Route path="/:name" element={<Students students={students} />} />
