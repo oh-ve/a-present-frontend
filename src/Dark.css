@@ -191,9 +191,23 @@ body p {
     margin: 30px auto;
   }
 
+  .Home.dark {
+    width: 70%;
+  }
+
   .Students {
     width: 70%;
     margin: 30px auto;
+  }
+
+  .Home img {
+    width: 50%;
+    height: auto;
+  }
+
+  .Home.dark img {
+    width: 50%;
+    height: auto;
   }
 }
 
