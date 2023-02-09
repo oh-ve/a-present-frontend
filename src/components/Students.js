@@ -26,60 +26,70 @@ export default function Students({ students }) {
 
   return (
     <div className="Students">
-      <h1>{name}</h1>
+      <h1 className="text">{name}</h1>
       {image ? <img src={image} width="300px" /> : <></>}
 
       {student.formerJob && (
         <>
-          <h2>Former Job:</h2>
-          <p>{student.formerJob}</p>
+          <h2 className="text">Former Job:</h2>
+          <p className="text">{student.formerJob}</p>
         </>
       )}
       {student.goal && (
         <>
-          <h2>My goal after the bootcamp:</h2>
-          <p>{student.goal}</p>
+          <h2 className="text">My goal after the bootcamp:</h2>
+          <p className="text">{student.goal}</p>
         </>
       )}
       {student.learning && (
         <>
-          <h2>The favourite thing I've learned:</h2>
-          <p>{student.learning}</p>
+          <h2 className="text">The favourite thing I've learned:</h2>
+          <p className="text">{student.learning}</p>
         </>
       )}
       {student.struggle && (
         <>
-          <h2>What I struggled with the most:</h2>
-          <p>{student.struggle}</p>
+          <h2 className="text">What I struggled with the most:</h2>
+          <p className="text">{student.struggle}</p>
         </>
       )}
       {student.moment && (
         <>
-          <h2>My favourite moment in the bootcamp:</h2>
-          <p>{student.moment}</p>
+          <h2 className="text">My favourite moment in the bootcamp:</h2>
+          <p className="text">{student.moment}</p>
         </>
       )}
       {student.whyReaganIsCool && (
         <>
-          <h2>What I like most about Reagan:</h2>
-          <p>{student.whyReaganIsCool}</p>
+          <h2 className="text">What I like most about Reagan:</h2>
+          <p className="text">{student.whyReaganIsCool}</p>
         </>
       )}
       {student.message && (
         <>
-          <h2>What I always wanted to tell Reagan:</h2>
-          <p>{student.message}</p>
+          <h2 className="text">What I always wanted to tell Reagan:</h2>
+          <p className="text">{student.message}</p>
         </>
       )}
       <div className="oneStudentButtons">
         {previousStudent && (
-          <button onClick={() => navigate(`/${previousStudent.name}`)}>
+          <button
+            className="studentsButton"
+            onClick={() => navigate(`/${previousStudent.name}`)}
+          >
             Previous
           </button>
         )}
-        <button onClick={() => navigate(`/`)}>Back</button>
+        <button className="studentsButton" onClick={() => navigate(`/`)}>
+          Back
+        </button>
         {nextStudent && (
-          <button onClick={() => navigate(`/${nextStudent.name}`)}>Next</button>
+          <button
+            className="studentsButton"
+            onClick={() => navigate(`/${nextStudent.name}`)}
+          >
+            Next
+          </button>
         )}
       </div>
     </div>
