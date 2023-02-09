@@ -3,11 +3,27 @@ import { useState } from "react";
 import Reagan from "./Images/Reagan.jpg";
 import { FaGithub } from "react-icons/fa";
 
-export default function Home({ students, toggleMode, mode, setMode, css }) {
+export default function Home({ students, onCssChange }) {
   const navigate = useNavigate();
+  const [mode, setMode] = useState("light");
+
+  const toggleMode = () => {
+    setMode(!mode);
+  };
+
+  const [css, setCss] = useState("");
+
+  const handleCssChange = (newCss) => {
+    setCss(newCss);
+  };
+
+  const newCss =
+    mode === "light" ? require("../Light.css") : require("../Dark.css");
 
   return (
     <div className="Home">
+      <style dangerouslySetInnerHTML={{ __html: css }} />
+
       <h2>A present for Reagan</h2>
       <h1>WD#033</h1>
 

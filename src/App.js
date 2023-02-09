@@ -5,14 +5,14 @@ import Home from "./components/Home";
 
 export default function App() {
   const [students, setStudents] = useState([]);
-  const [mode, setMode] = useState("light");
+  // const [mode, setMode] = useState("light");
 
-  const [css, setCss] = useState(require("./Light.css"));
+  // const [css, setCss] = useState(require("./Light.css"));
 
-  const toggleMode = () => {
-    setMode(mode === "light" ? "dark" : "light");
-    setCss(mode === "light" ? require("./Dark.css") : require("./Light.css"));
-  };
+  // const toggleMode = () => {
+  //   setMode(mode === "light" ? "dark" : "light");
+  //   setCss(mode === "light" ? require("./Dark.css") : require("./Light.css"));
+  // };
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -26,19 +26,14 @@ export default function App() {
     };
 
     fetchStudents();
-  }, [mode]);
+  }, []);
 
   console.log("STUDENTS: ", students);
 
   return (
     <div className="App">
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home toggleMode={toggleMode} students={students} css={css} />
-          }
-        />
+        <Route path="/" element={<Home students={students} />} />
         <Route path="/:name" element={<Students students={students} />} />
       </Routes>
     </div>
