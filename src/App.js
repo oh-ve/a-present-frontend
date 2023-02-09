@@ -17,7 +17,7 @@ export default function App() {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const res = await fetch("http://localhost:8080/students");
+        const res = await fetch("https://a-present.onrender.com/students");
         const data = await res.json();
         setStudents(data?.students);
       } catch (err) {
