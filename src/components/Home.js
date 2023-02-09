@@ -2,33 +2,45 @@ import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Reagan from "./Images/Reagan.jpg";
 import { FaGithub } from "react-icons/fa";
+import "../Dark.css";
+import Students from "./Students";
 
 export default function Home({ students, onCssChange }) {
   const navigate = useNavigate();
-  const [mode, setMode] = useState("light");
+  // const [mode, setMode] = useState();
 
   const toggleMode = () => {
-    setMode(!mode);
+    const body = document.querySelector("body");
+    const home = document.querySelector(".Home");
+    const text = document.querySelectorAll(".text");
+    const git = document.querySelectorAll(".gitLinks");
+    const studButton = document.querySelectorAll(".studentsButton");
+    const stud = document.querySelector(".Students");
+    if (body.classList.contains("dark")) {
+      body.classList.remove("dark");
+      home.classList.remove("dark");
+      text.forEach((t) => t.classList.remove("dark"));
+      git.forEach((g) => g.classList.remove("dark"));
+      studButton.forEach((button) => button.classList.remove("dark"));
+      stud.classList.remove("dark");
+    } else {
+      body.classList.add("dark");
+      home.classList.add("dark");
+      text.forEach((t) => t.classList.add("dark"));
+      git.forEach((g) => g.classList.add("dark"));
+      studButton.forEach((button) => button.classList.add("dark"));
+      stud.classList.add("dark");
+    }
+    // setMode(!mode);
   };
-
-  const [css, setCss] = useState("");
-
-  const handleCssChange = (newCss) => {
-    setCss(newCss);
-  };
-
-  const newCss =
-    mode === "light" ? require("../Light.css") : require("../Dark.css");
 
   return (
     <div className="Home">
-      <style dangerouslySetInnerHTML={{ __html: css }} />
-
-      <h2>A present for Reagan</h2>
-      <h1>WD#033</h1>
+      <h2 className="text">A present for Reagan</h2>
+      <h1 className="text">WD#033</h1>
 
       <img src={Reagan} />
-      <p>
+      <p className="text">
         Yellow, Reagan! We, the students of your very first own web development
         batch, have decided to create this little full-stack application as a
         gift for you, to make sure that you never ever ever forget us. And also
@@ -37,12 +49,16 @@ export default function Home({ students, onCssChange }) {
         almost neverending) patience and your amazing teaching skills as well as
         for being an awesome person and a great friend!
       </p>
-      <p>First of all, click here to switch on your beloved dark mode:</p>
+      <p className="text">
+        First of all, click here to switch on your beloved dark mode:
+      </p>
       <button className="darkButton" onClick={toggleMode}>
         Dark mode
       </button>
-      <p>No, you can't switch it back off and that's a feature, not a bug.</p>
-      <p>Alrighty, let's see what everyone has to say:</p>
+      <p>
+        Sometimes it works, sometimes it doesn't. It's a feature, not a bug!
+      </p>
+      <p className="text">Alrighty, let's see what everyone has to say:</p>
       <div id="studentButtons">
         {students
           .sort((a, b) => a.name.localeCompare(b.name))
@@ -60,13 +76,21 @@ export default function Home({ students, onCssChange }) {
       <div className="github">
         <div id="frontend">
           <FaGithub />
-          <a href="https://github.com/oh-ve/a-present-frontend" target="blank">
+          <a
+            className="gitLinks"
+            href="https://github.com/oh-ve/a-present-frontend"
+            target="blank"
+          >
             Frontend
           </a>
         </div>
         <div id="backend">
           <FaGithub />
-          <a href="https://github.com/oh-ve/a-present-backend" target="blank">
+          <a
+            className="gitLinks"
+            href="https://github.com/oh-ve/a-present-backend"
+            target="blank"
+          >
             Backend
           </a>
         </div>

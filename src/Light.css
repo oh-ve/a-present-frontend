@@ -20,6 +20,11 @@ body {
   margin-top: 0px;
 }
 
+.text.dark {
+  color: white;
+  background-color: #506680;
+}
+
 .Home h2 {
   font-size: 2em;
 }
